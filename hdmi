@@ -1,0 +1,43 @@
+public class MainWindow {
+    public static JFrame mainFrame = new JFrame();
+
+    public MainWindow() {
+        
+        windowSpawner();
+        
+        JPanel textPanel = new JPanel(),//Panel for command in put and success out put- center
+                errorPanel = new JPanel(),//Panel for error of command- south
+                dateTimeMenuPanel = new JPanel(),//Panel for date, time & menu display- north
+                currentDirPanel = new JPanel();//Panel for current working directory- West 
+        
+        JLabel lableJLabel = new JLabel("$->Test"); 
+        
+        textPanel.setBackground(Color.MAGENTA);
+        errorPanel.setBackground(Color.RED);
+        dateTimeMenuPanel.setBackground(Color.GREEN);
+        currentDirPanel.setBackground(Color.BLUE);
+        
+        textPanel.setPreferredSize(new Dimension(100, 100));
+        errorPanel.setPreferredSize(new Dimension(100, 100));
+        dateTimeMenuPanel.setPreferredSize(new Dimension(100, 50));
+        currentDirPanel.setPreferredSize(new Dimension(200, 100));
+        
+        textPanel.setLayout(new BorderLayout());
+        textPanel.add(lableJLabel, BorderLayout.CENTER);
+        
+        MainWindow.mainFrame.add(textPanel, BorderLayout.CENTER);
+        MainWindow.mainFrame.add(errorPanel, BorderLayout.SOUTH);
+        MainWindow.mainFrame.add(dateTimeMenuPanel, BorderLayout.NORTH);
+        MainWindow.mainFrame.add(currentDirPanel, BorderLayout.WEST);
+        
+    }
+    
+    public void windowSpawner() {
+        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainFrame.setSize(1000, 600);
+        mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        mainFrame.setTitle("Project Larka(INDEV)");
+        mainFrame.getContentPane().setBackground(new Color(0x474747));
+        mainFrame.setLayout(new BorderLayout(5,5));
+        mainFrame.setVisible(true);
+    }
